@@ -145,7 +145,7 @@
             this.groupBox4.Size = new System.Drawing.Size(356, 71);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Action Status";
             // 
             // ShutdownTimer
             // 
@@ -158,6 +158,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ShutdownTimer";
             this.Text = "ShutDownTimer";
+            this.Load += new System.EventHandler(this.ShutdownTimer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

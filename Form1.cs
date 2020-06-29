@@ -71,5 +71,9 @@ namespace ShutdownTimer
 
         }
 
+        private void ShutdownTimer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

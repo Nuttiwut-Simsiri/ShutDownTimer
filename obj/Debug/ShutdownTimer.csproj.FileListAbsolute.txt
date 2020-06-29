@@ -1,7 +1,6 @@
 D:\ShutdownTimer\ShutdownTimer\bin\Debug\ShutdownTimer.exe.config
 D:\ShutdownTimer\ShutdownTimer\bin\Debug\ShutdownTimer.exe
 D:\ShutdownTimer\ShutdownTimer\bin\Debug\ShutdownTimer.pdb
-D:\ShutdownTimer\ShutdownTimer\obj\Debug\ShutdownTimer.csprojAssemblyReference.cache
 D:\ShutdownTimer\ShutdownTimer\obj\Debug\ShutdownTimer.ShutdownTimer.resources
 D:\ShutdownTimer\ShutdownTimer\obj\Debug\ShutdownTimer.Properties.Resources.resources
 D:\ShutdownTimer\ShutdownTimer\obj\Debug\ShutdownTimer.csproj.GenerateResource.cache
