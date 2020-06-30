@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.actionDropDown = new System.Windows.Forms.ComboBox();
-            this.timerSetter = new System.Windows.Forms.NumericUpDown();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.summary_box = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.timerSetter = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).BeginInit();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -46,65 +49,43 @@
             // actionDropDown
             // 
             this.actionDropDown.DropDownHeight = 120;
+            this.actionDropDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actionDropDown.FormattingEnabled = true;
             this.actionDropDown.IntegralHeight = false;
-            this.actionDropDown.ItemHeight = 13;
+            this.actionDropDown.ItemHeight = 24;
             this.actionDropDown.Items.AddRange(new object[] {
             "Shutdown",
             "Restart",
             "Abort"});
-            this.actionDropDown.Location = new System.Drawing.Point(40, 47);
+            this.actionDropDown.Location = new System.Drawing.Point(29, 32);
             this.actionDropDown.MaxDropDownItems = 3;
             this.actionDropDown.Name = "actionDropDown";
-            this.actionDropDown.Size = new System.Drawing.Size(282, 21);
+            this.actionDropDown.Size = new System.Drawing.Size(303, 32);
             this.actionDropDown.TabIndex = 1;
             this.actionDropDown.Text = "Select Action";
-            // 
-            // timerSetter
-            // 
-            this.timerSetter.DecimalPlaces = 1;
-            this.timerSetter.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.timerSetter.Location = new System.Drawing.Point(40, 64);
-            this.timerSetter.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.timerSetter.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.timerSetter.Name = "timerSetter";
-            this.timerSetter.Size = new System.Drawing.Size(282, 20);
-            this.timerSetter.TabIndex = 4;
-            this.timerSetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timerSetter.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
             // 
             // btn_confirm
             // 
             this.btn_confirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_confirm.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_confirm.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btn_confirm.Location = new System.Drawing.Point(29, 31);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(303, 50);
             this.btn_confirm.TabIndex = 3;
             this.btn_confirm.Text = "Confirm";
-            this.btn_confirm.UseVisualStyleBackColor = true;
+            this.btn_confirm.UseVisualStyleBackColor = false;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
             // 
             // summary_box
             // 
-            this.summary_box.Location = new System.Drawing.Point(6, 19);
+            this.summary_box.BackColor = System.Drawing.Color.Black;
+            this.summary_box.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summary_box.ForeColor = System.Drawing.Color.Lime;
+            this.summary_box.Location = new System.Drawing.Point(6, 32);
             this.summary_box.Name = "summary_box";
-            this.summary_box.Size = new System.Drawing.Size(344, 46);
+            this.summary_box.Size = new System.Drawing.Size(343, 33);
             this.summary_box.TabIndex = 5;
             this.summary_box.Text = "";
             // 
@@ -120,6 +101,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.timerSetter);
             this.groupBox2.Location = new System.Drawing.Point(12, 110);
             this.groupBox2.Name = "groupBox2";
@@ -127,6 +109,32 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Time";
+            // 
+            // timerSetter
+            // 
+            this.timerSetter.DecimalPlaces = 1;
+            this.timerSetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerSetter.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.timerSetter.Location = new System.Drawing.Point(54, 28);
+            this.timerSetter.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.timerSetter.Name = "timerSetter";
+            this.timerSetter.Size = new System.Drawing.Size(227, 53);
+            this.timerSetter.TabIndex = 4;
+            this.timerSetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.timerSetter.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.timerSetter.ValueChanged += new System.EventHandler(this.timerSetter_ValueChanged);
             // 
             // groupBox3
             // 
@@ -136,6 +144,7 @@
             this.groupBox3.Size = new System.Drawing.Size(355, 100);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Confirm";
             // 
             // groupBox4
             // 
@@ -147,21 +156,33 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Action Status";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(287, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Hours";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // ShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 411);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(379, 408);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ShutdownTimer";
             this.Text = "ShutDownTimer";
-            this.Load += new System.EventHandler(this.ShutdownTimer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -170,13 +191,15 @@
 
         #endregion
         private System.Windows.Forms.ComboBox actionDropDown;
-        private System.Windows.Forms.NumericUpDown timerSetter;
         private System.Windows.Forms.Button btn_confirm;
         private System.Windows.Forms.RichTextBox summary_box;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.NumericUpDown timerSetter;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
