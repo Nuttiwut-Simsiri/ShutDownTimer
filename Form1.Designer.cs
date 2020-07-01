@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.actionDropDown = new System.Windows.Forms.ComboBox();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.summary_box = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.timerSetter = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timerSetter)).BeginInit();
@@ -50,6 +49,7 @@
             // 
             this.actionDropDown.DropDownHeight = 120;
             this.actionDropDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actionDropDown.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.actionDropDown.FormattingEnabled = true;
             this.actionDropDown.IntegralHeight = false;
             this.actionDropDown.ItemHeight = 24;
@@ -62,7 +62,8 @@
             this.actionDropDown.Name = "actionDropDown";
             this.actionDropDown.Size = new System.Drawing.Size(303, 32);
             this.actionDropDown.TabIndex = 1;
-            this.actionDropDown.Text = "Select Action";
+            this.actionDropDown.Text = "... Action ...";
+            this.actionDropDown.SelectedIndexChanged += new System.EventHandler(this.actionDropDown_SelectedIndexChanged);
             // 
             // btn_confirm
             // 
@@ -80,8 +81,9 @@
             // 
             // summary_box
             // 
+            this.summary_box.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.summary_box.BackColor = System.Drawing.Color.Black;
-            this.summary_box.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summary_box.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_box.ForeColor = System.Drawing.Color.Lime;
             this.summary_box.Location = new System.Drawing.Point(6, 32);
             this.summary_box.Name = "summary_box";
@@ -110,10 +112,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Time";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(287, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Hours";
+            // 
             // timerSetter
             // 
             this.timerSetter.DecimalPlaces = 1;
-            this.timerSetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerSetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerSetter.ForeColor = System.Drawing.Color.OrangeRed;
             this.timerSetter.Increment = new decimal(new int[] {
             5,
             0,
@@ -126,7 +139,7 @@
             0,
             0});
             this.timerSetter.Name = "timerSetter";
-            this.timerSetter.Size = new System.Drawing.Size(227, 53);
+            this.timerSetter.Size = new System.Drawing.Size(227, 57);
             this.timerSetter.TabIndex = 4;
             this.timerSetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timerSetter.Value = new decimal(new int[] {
@@ -134,7 +147,6 @@
             0,
             0,
             65536});
-            this.timerSetter.ValueChanged += new System.EventHandler(this.timerSetter_ValueChanged);
             // 
             // groupBox3
             // 
@@ -156,23 +168,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Action Status";
             // 
-            // label1
+            // splitter1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(287, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Hours";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 407);
+            this.splitter1.TabIndex = 10;
+            this.splitter1.TabStop = false;
             // 
             // ShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(379, 408);
+            this.ClientSize = new System.Drawing.Size(377, 407);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -198,8 +208,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.NumericUpDown timerSetter;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
 

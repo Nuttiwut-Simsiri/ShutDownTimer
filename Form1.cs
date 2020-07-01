@@ -88,12 +88,14 @@ namespace ShutdownTimer
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void actionDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string selectedAction = actionDropDown.SelectedItem?.ToString() ?? "unselect";
+            if (selectedAction != "unselect")
+                btn_confirm.Text = selectedAction;
         }
 
-        private void timerSetter_ValueChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
